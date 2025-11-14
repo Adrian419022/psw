@@ -1,0 +1,39 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        d:DesignWidth="420"
+        d:DesignHeight="420"
+        x:Class="CalculatorApp.MainWindow"
+        Title="Kalkulator"
+        Width="420"
+        Height="420">
+    <Border Padding="24">
+        <StackPanel Spacing="16">
+            <TextBlock Text="Prosty kalkulator" FontSize="22" FontWeight="SemiBold" HorizontalAlignment="Center"/>
+
+            <Grid ColumnDefinitions="Auto,12,*" RowDefinitions="Auto,Auto,Auto" VerticalAlignment="Top">
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Liczba 1:" VerticalAlignment="Center"/>
+                <TextBox x:Name="Input1TextBox" Grid.Row="0" Grid.Column="2" Watermark="np. 3,14"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Text="Liczba 2:" VerticalAlignment="Center" Margin="0,8,0,0"/>
+                <TextBox x:Name="Input2TextBox" Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Watermark="np. 2"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Wynik:" VerticalAlignment="Center" Margin="0,8,0,0"/>
+                <TextBox x:Name="ResultTextBox" Grid.Row="2" Grid.Column="2" Margin="0,8,0,0" IsReadOnly="True"/>
+            </Grid>
+
+            <UniformGrid Columns="2" Rows="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,8,0,0">
+                <Button Content="Dodaj" Click="OnAddClicked" Margin="4"/>
+                <Button Content="Odejmij" Click="OnSubtractClicked" Margin="4"/>
+                <Button Content="Pomnóż" Click="OnMultiplyClicked" Margin="4"/>
+                <Button Content="Podziel" Click="OnDivideClicked" Margin="4"/>
+            </UniformGrid>
+
+            <Button Content="Wyczyść wszystko" Click="OnClearClicked" HorizontalAlignment="Stretch" Margin="0,8,0,0"/>
+
+            <TextBlock x:Name="ErrorTextBlock" Foreground="Red" FontSize="14" TextWrapping="Wrap"/>
+        </StackPanel>
+    </Border>
+</Window>
